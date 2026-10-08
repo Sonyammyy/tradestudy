@@ -1,0 +1,80 @@
+/* 헤더, 내비게이션, 3분할 그리드, 반응형 */
+.site-header {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; gap: 12px;
+  height: var(--header-h);
+  padding: 0 24px;
+  background: var(--mist);
+}
+.site-header__logo { display: flex; align-items: center; gap: 10px; color: var(--navy); }
+.site-header__logo:hover { color: var(--navy); }
+.site-header__logo img { width: 36px; height: 36px; }
+.site-header__title { font-size: var(--fs-h2); font-weight: 700; white-space: nowrap; }
+.site-header__actions { margin-left: auto; display: flex; gap: 8px; }
+
+.app {
+  display: grid;
+  grid-template-columns: var(--nav-w) minmax(0, 1fr);
+  gap: var(--gap);
+  padding: 0 var(--gap) var(--gap);
+}
+
+/* 왼쪽 내비게이션 */
+.site-nav { position: sticky; top: var(--header-h); align-self: start; }
+.site-nav ul { display: grid; gap: 4px; }
+.site-nav a {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 16px;
+  border-radius: var(--r-pill);
+  font-size: var(--fs-small); font-weight: 500; color: var(--ink);
+}
+.site-nav a .icon { color: var(--steel); flex: none; }
+.site-nav a:hover { background: var(--tint-3); color: var(--ink); }
+.site-nav a[aria-current="page"] { background: var(--navy); color: var(--white); }
+.site-nav a[aria-current="page"] .icon { color: var(--white); }
+
+/* 데스크톱에서 메뉴 접기 */
+.nav-collapsed .app { grid-template-columns: minmax(0, 1fr); }
+.nav-collapsed .site-nav { display: none; }
+
+.page { min-width: 0; }
+.page__title { margin-bottom: var(--gap); color: var(--navy); }
+
+/* 홈 3분할 */
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.9fr 1fr;
+  gap: var(--gap);
+  align-items: stretch;
+}
+
+/* 태블릿 이하: 메뉴는 겹쳐 열림, 홈 좌측 패널은 접힘 */
+@media (max-width: 1024px) {
+  .app, .nav-collapsed .app { grid-template-columns: minmax(0, 1fr); }
+  .site-nav, .nav-collapsed .site-nav {
+    display: none;
+    position: fixed; top: var(--header-h); left: var(--gap); z-index: 19;
+    width: 240px; padding: 8px;
+    border-radius: var(--r-panel);
+    background: var(--white);
+    border: 1px solid var(--line);
+  }
+  .site-nav.is-open { display: block; }
+
+  .home-grid { grid-template-columns: 1.9fr 1fr; }
+  .home-toc { grid-column: 1 / -1; }
+}
+
+/* 모바일: 세로 1열 */
+@media (max-width: 768px) {
+  .site-header { padding: 0 16px; gap: 8px; }
+  .site-header__title { font-size: var(--fs-h3); }
+  .hide-sm { display: none !important; }
+  .app { padding: 0 16px 16px; }
+  .home-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* 아주 좁은 화면: 로고만 남기고 사이트명 숨김 */
+@media (max-width: 430px) {
+  .site-header__title { display: none; }
+}

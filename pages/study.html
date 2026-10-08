@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>개념노트 · 무역노트</title>
+  <meta name="description" content="국제무역사 1급 스터디 · 개념노트">
+  <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages/study.css">
+  <script type="module" src="../js/pages/study.js"></script>
+</head>
+<body data-page="study">
+  <div id="site-header"></div>
+  <div class="app">
+    <nav id="site-nav" class="site-nav" aria-label="주요 메뉴"></nav>
+    <main id="main" class="page page--study">
+      <div class="study-head">
+        <h1 class="page__title">개념노트</h1>
+        <p class="caption num" id="study-meta"></p>
+      </div>
+
+      <section class="panel timeline" aria-label="7주 학습 타임라인">
+        <div class="timeline__scroll" id="timeline"></div>
+      </section>
+
+      <div class="study-grid">
+        <section class="panel week-panel" id="week-panel" role="tabpanel" tabindex="-1"></section>
+        <aside class="study-side" aria-label="진행 현황">
+          <section class="panel" aria-labelledby="side-progress-title">
+            <header class="panel__head"><h2 id="side-progress-title">진행률</h2></header>
+            <div class="panel__body" id="side-progress"></div>
+          </section>
+          <section class="panel" aria-labelledby="side-check-title">
+            <header class="panel__head"><h2 id="side-check-title">주차 체크리스트</h2></header>
+            <div class="panel__body" id="side-checklist"></div>
+          </section>
+        </aside>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

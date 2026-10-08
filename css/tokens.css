@@ -1,0 +1,40 @@
+/* 컬러·폰트·간격 변수 (README 3장) */
+:root {
+  --navy: #2A5078;
+  --steel: #6587A5;
+  --white: #FFFFFF;
+  --gray: #848996;
+  --mist: #DBE4EB;
+
+  /* 파생 */
+  --ink: color-mix(in srgb, var(--navy) 70%, #000);
+  --tint-1: color-mix(in srgb, var(--steel) 10%, var(--white));
+  --tint-2: color-mix(in srgb, var(--steel) 18%, var(--white));
+  --tint-3: color-mix(in srgb, var(--mist) 70%, var(--white));
+  --line: var(--mist);
+
+  /* 상태색 (정답/오답/경고 표시에만 사용) */
+  --ok: #2E7D5B;
+  --bad: #C0392B;
+  --warn: #B7791F;
+
+  /* 폰트 */
+  --font: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --fs-display: 36px;
+  --fs-h1: 28px;
+  --fs-h2: 20px;
+  --fs-h3: 17px;
+  --fs-body: 16px;
+  --fs-small: 14px;
+  --fs-caption: 13px;
+
+  /* 형태와 간격 */
+  --r-panel: 20px;
+  --r-tile: 14px;
+  --r-pill: 999px;
+  --gap: 16px;
+  --pad-panel: 24px;
+
+  --header-h: 72px;
+  --nav-w: 200px;
+}

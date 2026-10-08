@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>무역노트 · 국제무역사 1급 스터디</title>
+  <meta name="description" content="국제무역사 1급 스터디 · 개념노트, 인코텀즈, 결제방식 흐름도, 오답노트, 합격 시뮬레이터">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/home.css">
+  <script type="module" src="js/pages/home.js"></script>
+</head>
+<body data-page="home">
+  <div id="site-header"></div>
+  <div class="app">
+    <nav id="site-nav" class="site-nav" aria-label="주요 메뉴"></nav>
+    <main id="main" class="page page--home">
+      <div class="home-grid">
+        <section class="panel home-toc" aria-labelledby="toc-title">
+          <header class="panel__head">
+            <h2 id="toc-title">학습 목차</h2>
+            <button class="btn btn--ghost btn--icon panel__toggle" type="button" id="toc-toggle"
+                    aria-controls="toc" aria-expanded="false" aria-label="학습 목차 펴기">
+              <svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+          </header>
+          <div class="panel__body" id="toc"></div>
+        </section>
+        <section class="panel home-today" aria-labelledby="today-title">
+          <header class="panel__head"><h2 id="today-title">오늘의 학습</h2></header>
+          <div class="panel__body" id="today"></div>
+        </section>
+        <section class="panel home-studio" aria-labelledby="studio-title">
+          <header class="panel__head"><h2 id="studio-title">학습 스튜디오</h2></header>
+          <div class="panel__body" id="studio"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

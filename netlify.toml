@@ -1,0 +1,65 @@
+# Netlify 설정 · 빌드 없이 정적 파일을 그대로 배포합니다
+[build]
+  publish = "."
+  command = ""
+
+# 모든 페이지 공통 보안 헤더
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# HTML은 항상 새로 받기 (배포 직후 바로 반영)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# CSS·JS·아이콘은 짧게 캐시 (파일명에 해시가 없으므로 길게 잡지 않음)
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# 짧은 주소: /study → /pages/study.html
+[[redirects]]
+  from = "/study"
+  to = "/pages/study.html"
+  status = 200
+
+[[redirects]]
+  from = "/incoterms"
+  to = "/pages/incoterms.html"
+  status = 200
+
+[[redirects]]
+  from = "/payment"
+  to = "/pages/payment.html"
+  status = 200
+
+[[redirects]]
+  from = "/notes"
+  to = "/pages/notes.html"
+  status = 200
+
+[[redirects]]
+  from = "/flashcards"
+  to = "/pages/flashcards.html"
+  status = 200
+
+[[redirects]]
+  from = "/exam"
+  to = "/pages/exam.html"
+  status = 200

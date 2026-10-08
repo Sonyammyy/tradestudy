@@ -1,0 +1,95 @@
+/* home 페이지 전용 스타일 */
+
+/* 데스크톱: 패널이 화면 높이를 채우도록 */
+.home-grid > .panel { min-height: calc(100vh - var(--header-h) - var(--gap)); }
+
+/* ---------- 좌측 · 학습 목차 ---------- */
+.home-toc .panel__body { display: grid; gap: 14px; align-content: start; }
+
+.toc-progress { display: grid; gap: 8px; }
+.toc-progress__label { display: flex; justify-content: space-between; color: var(--ink); }
+.toc-progress__label .num { color: var(--gray); }
+
+.check-row--all { padding: 4px 10px; color: var(--gray); }
+
+.week-list { display: grid; gap: 4px; margin-top: 6px; }
+.week-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px; border-radius: var(--r-tile);
+}
+.week-row:hover { background: var(--tint-3); }
+.week-row.is-current { background: var(--tint-2); }
+.week-row__link { display: flex; align-items: flex-start; gap: 10px; flex: 1; min-width: 0; color: var(--ink); }
+.week-row__link:hover { color: var(--ink); }
+.week-row__no {
+  flex: none; width: 30px; padding-top: 1px;
+  font-size: var(--fs-small); font-weight: 700; color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+.week-row__text { display: grid; min-width: 0; line-height: 1.45; }
+.week-row__title { font-size: var(--fs-small); font-weight: 600; }
+.week-row.is-done .week-row__title { color: var(--gray); text-decoration: line-through; text-decoration-color: var(--steel); }
+
+/* ---------- 중앙 · 오늘의 학습 ---------- */
+.home-today .panel__body { display: flex; flex-direction: column; gap: 32px; }
+
+.today { display: grid; gap: 14px; justify-items: start; padding-top: 8px; }
+.today__badge {
+  display: grid; place-items: center;
+  width: 48px; height: 48px; border-radius: 14px;
+  background: var(--tint-2); color: var(--navy);
+  font-weight: 700; font-variant-numeric: tabular-nums;
+}
+.today__title { color: var(--navy); word-break: keep-all; }
+.today__meta { margin-top: -6px; }
+.today__note { color: var(--warn); font-weight: 600; }
+.today__summary { max-width: 68ch; word-break: keep-all; }
+.today__actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.today__chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+
+.today__search { margin-top: auto; position: relative; }
+.search-results--up {
+  position: absolute; left: 0; right: 0; bottom: calc(100% + 8px);
+  margin: 0; z-index: 5;
+}
+
+/* ---------- 우측 · 학습 스튜디오 ---------- */
+.home-studio .panel__body { display: flex; flex-direction: column; gap: 18px; }
+
+.recent { display: grid; gap: 8px; }
+.recent__head { display: flex; justify-content: space-between; align-items: baseline; }
+.recent__head h3 { font-size: var(--fs-small); font-weight: 700; }
+.recent__list { display: grid; gap: 6px; }
+.recent__item {
+  display: grid; gap: 2px;
+  padding: 10px 12px; border-radius: var(--r-tile);
+  border: 1px solid var(--line); color: var(--ink);
+}
+.recent__item:hover { border-color: var(--steel); color: var(--ink); }
+.recent__subject { font-size: 12px; font-weight: 600; color: var(--steel); }
+.recent__topic { font-size: var(--fs-small); font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.recent__empty { padding: 12px; border-radius: var(--r-tile); background: var(--tint-3); line-height: 1.6; }
+
+.studio__foot { margin-top: auto; position: sticky; bottom: 0; padding-top: 4px; background: var(--white); }
+
+/* ---------- 반응형 ---------- */
+@media (max-width: 1024px) {
+  .home-grid > .panel { min-height: 0; }
+  .home-today, .home-studio { min-height: calc(100vh - var(--header-h) - var(--gap)); }
+
+  /* 목차 패널: 제목 줄만 보이고 버튼으로 펼침 */
+  .panel__toggle { display: inline-flex; }
+  .panel__toggle .icon { transition: transform .2s; }
+  .home-toc .panel__head { border-bottom: 0; }
+  .home-toc > .panel__body { display: none; }
+  .home-toc.is-expanded .panel__head { border-bottom: 1px solid var(--line); }
+  .home-toc.is-expanded > .panel__body { display: grid; }
+  .home-toc.is-expanded .panel__toggle .icon { transform: rotate(180deg); }
+}
+
+@media (max-width: 768px) {
+  .home-today, .home-studio { min-height: 0; }
+  .today__search { margin-top: 0; }
+  .search-results--up { position: static; margin-bottom: 8px; }
+  .studio__foot { position: static; }
+}
