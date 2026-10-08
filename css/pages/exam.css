@@ -1,1 +1,98 @@
 /* exam 페이지 전용 스타일 */
+.page--exam { --series-1: #2a78d6; --series-2: #eb6834; --series-3: #1baf7a; --series-4: #eda100; }
+
+.exam-top { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: var(--gap); margin-bottom: var(--gap); }
+.exam-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: var(--gap); margin-bottom: var(--gap); align-items: start; }
+
+/* D-day */
+.exam-hero { display: grid; gap: 6px; align-content: center; padding: var(--pad-panel); background: var(--navy); color: var(--white); }
+.exam-hero__label { font-size: var(--fs-small); opacity: .8; }
+.exam-hero__dday { font-size: 64px; font-weight: 800; line-height: 1.05; letter-spacing: -.02em; }
+.exam-hero__date { font-size: var(--fs-body); font-weight: 600; }
+.exam-hero__apply { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 10px; padding: 10px 10px 10px 14px; border-radius: var(--r-tile); background: color-mix(in srgb, var(--white) 14%, transparent); font-size: var(--fs-small); font-weight: 600; }
+.exam-hero .caption { color: color-mix(in srgb, var(--white) 72%, transparent); }
+
+/* 회차 표 */
+.rounds-table tr.is-target { background: var(--tint-2); }
+.rounds-table tr.is-target th, .rounds-table tr.is-target td { font-weight: 700; color: var(--navy); }
+.rounds-table tr.is-past { color: var(--gray); }
+.round-state { padding: 1px 10px; border-radius: var(--r-pill); font-size: 12px; font-weight: 700; }
+.round-state--target { background: var(--navy); color: var(--white); }
+.round-state--past { background: var(--tint-3); color: var(--gray); }
+.round-state--next { background: var(--tint-2); color: var(--navy); }
+.rounds-note { padding: 10px 14px 14px; }
+
+/* 시험 개요 */
+.info-list { display: grid; grid-template-columns: auto 1fr; gap: 8px 18px; margin: 0 0 18px; font-size: var(--fs-small); }
+.info-list dt { color: var(--gray); }
+.info-list dd { margin: 0; font-weight: 600; word-break: keep-all; }
+.subjects-table__scope { white-space: normal; }
+
+/* 체크리스트 */
+.checklist-prep { display: grid; gap: 4px; }
+.checklist-prep .check-row { padding: 8px 10px; border-radius: 10px; }
+.checklist-prep .check-row:hover { background: var(--tint-3); }
+.checklist-prep .check-row.is-done span { color: var(--gray); text-decoration: line-through; text-decoration-color: var(--steel); }
+
+/* 시뮬레이터 */
+.sim { display: grid; gap: 20px; }
+.sim-inputs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.sim-input { display: grid; gap: 6px; padding: 14px; border-radius: var(--r-tile); background: var(--tint-1); }
+.sim-input__row { display: flex; align-items: center; gap: 8px; }
+.sim-input .input { width: 88px; text-align: center; font-size: var(--fs-h3); font-weight: 700; background: var(--white); border-color: var(--line); border-radius: 10px; }
+.sim-input__score { font-size: var(--fs-small); font-weight: 600; color: var(--navy); }
+.sim-input__score.is-bad, .is-bad { color: var(--bad); }
+.sim-result { min-height: 24px; }
+.sim-verdict { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 14px 16px; border-radius: var(--r-tile); }
+.sim-verdict.is-pass { background: color-mix(in srgb, var(--ok) 10%, var(--white)); }
+.sim-verdict.is-fail { background: color-mix(in srgb, var(--bad) 8%, var(--white)); }
+.sim-verdict__badge { padding: 4px 14px; border-radius: var(--r-pill); font-weight: 800; color: var(--white); }
+.is-pass .sim-verdict__badge { background: var(--ok); }
+.is-fail .sim-verdict__badge { background: var(--bad); }
+.sim-verdict__avg strong { font-size: var(--fs-h2); }
+.sim-notes { list-style: disc; padding: 10px 0 0 1.4em; display: grid; gap: 2px; }
+.sim-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.input--date { width: auto; min-height: 40px; }
+
+/* 모의고사 차트 */
+.mock { display: grid; gap: 18px; }
+.chart-card { position: relative; }
+.chart-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.chart-title { font-size: var(--fs-small); font-weight: 700; }
+.chart-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: var(--fs-caption); color: var(--ink); }
+.legend-line { display: inline-block; width: 14px; height: 3px; border-radius: 2px; margin-right: 6px; vertical-align: 3px; background: currentColor; }
+.chart-wrap { position: relative; }
+.chart { display: block; width: 100%; height: auto; font-family: var(--font); }
+.chart-grid { stroke: var(--line); stroke-width: 1; }
+.chart-grid--ref { stroke: var(--gray); stroke-dasharray: 4 4; opacity: .6; }
+.chart-axis { font-size: 11px; fill: var(--gray); }
+.chart-ref { font-size: 11px; fill: var(--gray); font-weight: 600; }
+.chart-line { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.chart-dot { stroke: var(--white); stroke-width: 2; }
+.chart-end { font-size: 11px; font-weight: 600; fill: var(--ink); }
+.chart-cross { stroke: var(--gray); stroke-width: 1; stroke-dasharray: 3 3; }
+.chart-hit { fill: transparent; cursor: crosshair; }
+.series-1 { color: var(--series-1); } .series-1 .chart-line { stroke: var(--series-1); } .series-1 .chart-dot { fill: var(--series-1); }
+.series-2 { color: var(--series-2); } .series-2 .chart-line { stroke: var(--series-2); } .series-2 .chart-dot { fill: var(--series-2); }
+.series-3 { color: var(--series-3); } .series-3 .chart-line { stroke: var(--series-3); } .series-3 .chart-dot { fill: var(--series-3); }
+.series-4 { color: var(--series-4); } .series-4 .chart-line { stroke: var(--series-4); } .series-4 .chart-dot { fill: var(--series-4); }
+.chart-tip {
+  position: absolute; z-index: 2; pointer-events: none;
+  display: grid; gap: 2px; min-width: 140px;
+  padding: 10px 12px; border-radius: 10px;
+  background: var(--white); border: 1px solid var(--line); box-shadow: 0 6px 18px color-mix(in srgb, var(--navy) 14%, transparent);
+  font-size: var(--fs-caption); color: var(--ink);
+}
+.chart-tip p { display: flex; align-items: center; gap: 2px; }
+.chart-tip b { margin-left: auto; padding-left: 10px; }
+.chart-tip__date { font-weight: 700; margin-bottom: 2px; }
+.chart-tip__avg { padding-top: 4px; margin-top: 2px; border-top: 1px solid var(--line); }
+.mock-table td.is-bad { font-weight: 700; }
+
+@media (max-width: 1024px) {
+  .exam-top, .exam-grid { grid-template-columns: minmax(0, 1fr); }
+  .sim-inputs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 768px) {
+  .exam-hero__dday { font-size: 52px; }
+}

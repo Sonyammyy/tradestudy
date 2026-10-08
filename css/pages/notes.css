@@ -1,1 +1,79 @@
 /* notes 페이지 전용 스타일 */
+.page-head--actions { justify-content: space-between; align-items: center; }
+.page-head__actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* 요약 */
+.notes-summary { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; align-items: center; }
+.stat-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.stat { display: grid; gap: 2px; padding: 14px 16px; border-radius: var(--r-tile); background: var(--tint-1); }
+.stat__label { font-size: var(--fs-caption); color: var(--gray); }
+.stat__value { font-size: var(--fs-h1); font-weight: 700; color: var(--navy); line-height: 1.2; }
+
+.subject-bars { display: grid; gap: 10px; }
+.subject-bar { display: grid; grid-template-columns: 64px minmax(0, 1fr) 28px; align-items: center; gap: 10px; font-size: var(--fs-small); }
+.subject-bar__track { height: 10px; border-radius: var(--r-pill); background: var(--tint-3); overflow: hidden; }
+.subject-bar__fill { display: block; height: 100%; border-radius: var(--r-pill); background: var(--navy); }
+.subject-bar__value { text-align: right; font-weight: 700; }
+
+/* 툴바 */
+.notes-toolbar {
+  display: grid; grid-template-columns: minmax(200px, 1fr) repeat(4, minmax(110px, 150px)); gap: 8px;
+  padding: 16px var(--pad-panel) 0;
+}
+.notes-toolbar select.input { min-height: 44px; }
+
+/* 카드 */
+.note-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; align-items: start; }
+.note-card {
+  display: grid; gap: 10px; align-content: start;
+  padding: 18px; border-radius: var(--r-tile);
+  border: 1px solid var(--line); border-left: 4px solid var(--steel);
+  background: var(--white);
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+.note-card.status-again { border-left-color: var(--bad); }
+.note-card.status-done { border-left-color: var(--ok); }
+.note-card.is-highlight, tr.is-highlight { box-shadow: 0 0 0 3px var(--tint-2); border-color: var(--navy); }
+.note-card:focus { outline: none; }
+.note-card__head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.note-card__subject { font-size: var(--fs-caption); font-weight: 600; color: var(--steel); }
+.note-card__topic { font-size: var(--fs-h3); color: var(--navy); word-break: keep-all; }
+.note-card__body { display: grid; gap: 6px; margin: 0; }
+.note-card__row { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 8px; font-size: var(--fs-small); }
+.note-card__row dt { color: var(--gray); }
+.note-card__row dd { margin: 0; white-space: pre-wrap; word-break: keep-all; }
+.note-card__row--question dd { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.is-bad-answer dd, .is-bad-answer p:last-child { color: var(--bad); }
+.is-good-answer dd, .is-good-answer p:last-child { color: var(--ok); font-weight: 600; }
+.note-card__link { display: inline-flex; align-items: center; gap: 4px; justify-self: start; padding: 3px 10px; border-radius: var(--r-pill); background: var(--tint-1); }
+.note-card__foot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; padding-top: 10px; border-top: 1px solid var(--line); }
+.note-card__actions { display: flex; align-items: center; gap: 2px; }
+.input--sm { min-height: 32px; width: auto; padding: 0 10px; font-size: var(--fs-caption); }
+
+/* 표 */
+.notes-table__topic { white-space: normal; min-width: 220px; font-weight: 600; }
+.notes-table__actions { text-align: right; }
+
+/* 복습 모드 */
+.modal--review { width: min(640px, calc(100% - 32px)); }
+.review-progress { border-radius: 0; height: 4px; }
+.review-card { gap: 12px; }
+.review-card__topic { font-size: var(--fs-h2); color: var(--navy); word-break: keep-all; }
+.review-block { padding: 12px 14px; border-radius: var(--r-tile); background: var(--tint-3); white-space: pre-wrap; word-break: keep-all; }
+.review-block__label { font-size: var(--fs-caption); font-weight: 700; color: var(--gray); margin-bottom: 2px; }
+.review-block--concept { background: var(--tint-2); }
+.review-reveal { min-height: 56px; border-style: dashed; }
+.review-done { text-align: center; padding: 32px var(--pad-panel); }
+.review-done__score { font-size: var(--fs-h2); }
+.review-done__score strong { font-size: 48px; }
+
+@media (max-width: 1024px) {
+  .notes-summary { grid-template-columns: minmax(0, 1fr); }
+  .notes-toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .notes-toolbar__search { grid-column: 1 / -1; }
+}
+@media (max-width: 768px) {
+  .stat-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .note-grid { grid-template-columns: minmax(0, 1fr); }
+  .page-head__actions .btn { flex: 1 1 auto; }
+}

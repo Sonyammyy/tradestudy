@@ -19,8 +19,32 @@
   <div class="app">
     <nav id="site-nav" class="site-nav" aria-label="주요 메뉴"></nav>
     <main id="main" class="page page--payment">
-      <h1 class="page__title">결제방식</h1>
-      <div id="payment-root"></div>
+      <div class="page-head">
+        <h1 class="page__title">결제방식</h1>
+        <p class="caption">송금 · 추심 · 신용장 6가지 흐름을 단계별로 따라가기</p>
+      </div>
+
+      <div class="pay-tabs" role="tablist" aria-label="결제방식 선택" id="pay-tabs"></div>
+
+      <section class="panel" aria-labelledby="overview-title">
+        <div class="panel__body pay-overview" id="overview"></div>
+      </section>
+
+      <section class="panel flow-panel" aria-labelledby="flow-title">
+        <header class="panel__head">
+          <h2 id="flow-title">흐름도</h2>
+          <div class="flow-controls" id="flow-controls"></div>
+        </header>
+        <div class="flow-grid">
+          <div class="flow-scroll" id="flow"></div>
+          <aside class="flow-detail" id="step-detail" aria-live="polite"></aside>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="pay-compare-title">
+        <header class="panel__head"><h2 id="pay-compare-title">6개 결제방식 비교</h2></header>
+        <div class="table-scroll" id="pay-compare"></div>
+      </section>
     </main>
   </div>
 </body>

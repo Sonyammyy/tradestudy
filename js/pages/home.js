@@ -267,7 +267,7 @@ function renderSearch(box, query) {
     return;
   }
   const q = query.toLowerCase();
-  const found = concepts.filter((c) => `${c.name} ${c.summary} ${c.group}`.toLowerCase().includes(q)).slice(0, 8);
+  const found = concepts.filter((c) => `${c.name} ${c.summary} ${c.group} ${c.examPoint} ${c.refs.join(" ")}`.toLowerCase().includes(q)).slice(0, 8);
 
   box.hidden = false;
   box.innerHTML = found.length

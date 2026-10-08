@@ -19,8 +19,32 @@
   <div class="app">
     <nav id="site-nav" class="site-nav" aria-label="주요 메뉴"></nav>
     <main id="main" class="page page--notes">
-      <h1 class="page__title">오답노트</h1>
-      <div id="notes-root"></div>
+      <div class="page-head page-head--actions">
+        <h1 class="page__title">오답노트</h1>
+        <div class="page-head__actions">
+          <button class="btn btn--primary" type="button" id="add-note">+ 오답 추가</button>
+          <button class="btn btn--outline" type="button" id="start-review">복습 모드</button>
+          <button class="btn btn--outline" type="button" id="export-notes">내보내기</button>
+          <button class="btn btn--outline" type="button" id="import-notes">불러오기</button>
+          <input type="file" id="import-file" accept="application/json,.json" hidden>
+        </div>
+      </div>
+
+      <section class="panel" aria-labelledby="summary-title">
+        <header class="panel__head"><h2 id="summary-title">요약</h2></header>
+        <div class="panel__body notes-summary" id="summary"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="list-title">
+        <header class="panel__head">
+          <h2 id="list-title">오답 목록 <span class="caption num" id="list-count"></span></h2>
+          <div class="segmented" role="group" aria-label="보기 방식" id="view-toggle"></div>
+        </header>
+        <div class="notes-toolbar" id="toolbar"></div>
+        <div class="panel__body" id="note-list"></div>
+      </section>
+
+      <dialog class="modal modal--review" id="review" aria-labelledby="review-title"></dialog>
     </main>
   </div>
 </body>

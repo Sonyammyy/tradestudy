@@ -17,6 +17,7 @@ const weekOf = (n) => plan.find((w) => w.week === n);
 let checks = load(KEYS.planChecks, {});
 let selected = thisWeek.week;
 let filter = "all"; // all | todo | known
+let expandAll = false;
 
 const isKnown = (id) => Boolean(checks[id]);
 const countKnown = (list) => list.filter((c) => isKnown(c.id)).length;
@@ -101,6 +102,7 @@ function renderWeekPanel() {
         ]
           .map(([key, label]) => `<button class="chip${filter === key ? " is-active" : ""}" type="button" data-filter="${key}" aria-pressed="${filter === key}">${label}</button>`)
           .join("")}
+        <button class="chip chip--toggle" type="button" id="expand-all" aria-pressed="${expandAll}">${expandAll ? "상세 모두 접기" : "상세 모두 펼치기"}</button>
       </div>
     </header>
 
@@ -117,6 +119,7 @@ function renderWeekPanel() {
           </section>`;
         })
         .join("") || `<p class="week-empty caption">${filter === "known" ? "아직 외운 개념이 없습니다." : "이 주의 개념을 모두 외웠습니다. 👏"}</p>`}
+      <p class="week-note caption">일반적인 국제무역사 수험 범위를 기준으로 정리한 내용입니다. 관세법·외국환거래법 등의 기간·금액은 개정될 수 있으니 시험 전 국가법령정보센터(law.go.kr)에서 최신 조문을 확인하세요.</p>
     </div>`;
 
   panel.querySelectorAll("[data-filter]").forEach((b) =>
@@ -125,6 +128,10 @@ function renderWeekPanel() {
       renderWeekPanel();
     })
   );
+  panel.querySelector("#expand-all").addEventListener("click", () => {
+    expandAll = !expandAll;
+    renderWeekPanel();
+  });
   panel.querySelectorAll("[data-known]").forEach((b) =>
     b.addEventListener("click", () => {
       const id = b.dataset.known;
@@ -147,7 +154,7 @@ function renderCard(c) {
       <div class="concept__body">
         <h4 class="concept__name">${c.name}</h4>
         <p class="concept__summary">${c.summary}</p>
-        ${c.detail ? `<details class="concept__detail"><summary>상세 설명</summary><div>${c.detail}</div></details>` : ""}
+        ${c.detail ? `<details class="concept__detail"${expandAll ? " open" : ""}><summary>상세 설명</summary><div>${c.detail}</div></details>` : ""}
         ${c.examPoint ? `<p class="concept__point"><strong>시험 포인트</strong> ${c.examPoint}</p>` : ""}
         ${c.refs.length ? `<p class="concept__refs"><span class="caption">관련 조항</span> ${c.refs.map((r) => `<span class="chip chip--static">${r}</span>`).join("")}</p>` : ""}
       </div>
@@ -275,6 +282,7 @@ function applyHash() {
   filter = "all";
   selectWeek(concept.week);
   const card = document.getElementById(concept.id);
+  card.querySelector("details")?.setAttribute("open", "");
   card.scrollIntoView({ block: "center" });
   card.focus({ preventScroll: true });
   card.classList.add("is-highlight");

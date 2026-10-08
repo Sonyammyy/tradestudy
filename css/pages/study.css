@@ -71,6 +71,9 @@
 
 .week-body { display: grid; gap: 28px; padding: var(--pad-panel); }
 .week-empty { padding: 24px; text-align: center; }
+.week-note { padding-top: 12px; border-top: 1px solid var(--line); line-height: 1.6; }
+.chip--toggle { margin-left: auto; background: var(--white); border: 1px solid var(--mist); }
+.chip--toggle[aria-pressed="true"] { background: var(--navy); color: var(--white); border-color: var(--navy); }
 
 .concept-group { display: grid; gap: 12px; }
 .concept-group__title { display: flex; align-items: baseline; gap: 8px; font-size: var(--fs-h3); }
@@ -95,7 +98,14 @@
 .concept__summary { font-size: var(--fs-small); line-height: 1.65; word-break: keep-all; }
 .concept__detail { margin-top: 6px; font-size: var(--fs-small); }
 .concept__detail summary { cursor: pointer; color: var(--steel); font-weight: 600; }
-.concept__detail > div { margin-top: 6px; padding: 10px 12px; border-radius: 10px; background: var(--tint-3); }
+.concept__detail > div { margin-top: 6px; padding: 12px 14px; border-radius: 10px; background: var(--tint-3); line-height: 1.7; word-break: keep-all; }
+.concept__detail p + ul, .concept__detail ul + p, .concept__detail ol + p { margin-top: 8px; }
+.concept__detail ul { list-style: disc; padding-left: 1.2em; display: grid; gap: 4px; }
+.concept__detail ul ul { list-style: circle; margin-top: 4px; }
+.concept__detail ol { list-style: decimal; padding-left: 1.4em; display: grid; gap: 4px; }
+.concept__detail strong { color: var(--navy); }
+.concept__detail .caption { margin-top: 8px; }
+.concept__point strong { margin-right: 6px; color: var(--navy); }
 .concept__point { margin-top: 6px; padding: 8px 12px; border-radius: 10px; background: var(--tint-2); font-size: var(--fs-small); }
 .concept__refs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 6px; }
 

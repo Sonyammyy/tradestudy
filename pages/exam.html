@@ -19,8 +19,39 @@
   <div class="app">
     <nav id="site-nav" class="site-nav" aria-label="주요 메뉴"></nav>
     <main id="main" class="page page--exam">
-      <h1 class="page__title">시험정보</h1>
-      <div id="exam-root"></div>
+      <div class="page-head">
+        <h1 class="page__title">시험정보</h1>
+        <p class="caption">제67회 국제무역사 1급 · 한국무역협회 무역아카데미</p>
+      </div>
+
+      <div class="exam-top">
+        <section class="panel exam-hero" id="exam-hero" aria-label="시험까지 남은 기간"></section>
+        <section class="panel" aria-labelledby="rounds-title">
+          <header class="panel__head"><h2 id="rounds-title">2026 회차별 일정</h2></header>
+          <div class="table-scroll" id="rounds"></div>
+        </section>
+      </div>
+
+      <div class="exam-grid">
+        <section class="panel" aria-labelledby="info-title">
+          <header class="panel__head"><h2 id="info-title">시험 개요</h2></header>
+          <div class="panel__body" id="exam-info"></div>
+        </section>
+        <section class="panel" aria-labelledby="check-title">
+          <header class="panel__head"><h2 id="check-title">응시 준비물 체크리스트</h2><span class="caption num" id="check-count"></span></header>
+          <div class="panel__body" id="checklist"></div>
+        </section>
+      </div>
+
+      <section class="panel" id="simulator" aria-labelledby="sim-title">
+        <header class="panel__head"><h2 id="sim-title">합격 시뮬레이터</h2><span class="caption">과목별 맞힌 개수를 입력하세요 (각 30문항)</span></header>
+        <div class="panel__body sim" id="sim"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="mock-title">
+        <header class="panel__head"><h2 id="mock-title">모의고사 기록</h2><span class="caption" id="mock-count"></span></header>
+        <div class="panel__body mock" id="mock"></div>
+      </section>
     </main>
   </div>
 </body>

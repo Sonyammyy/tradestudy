@@ -19,8 +19,22 @@
   <div class="app">
     <nav id="site-nav" class="site-nav" aria-label="주요 메뉴"></nav>
     <main id="main" class="page page--flashcards">
-      <h1 class="page__title">암기카드</h1>
-      <div id="flashcards-root"></div>
+      <div class="page-head">
+        <h1 class="page__title">암기카드</h1>
+        <p class="caption">숫자 · 조항 · 약어 · 무역영어 표현 · ← → 이동, Space 뒤집기</p>
+      </div>
+
+      <section class="panel" aria-label="암기카드">
+        <div class="panel__body fc">
+          <div class="fc-filters" id="fc-filters"></div>
+          <div class="fc-stage" id="fc-stage"></div>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="fc-list-title">
+        <header class="panel__head"><h2 id="fc-list-title">카드 목록</h2><span class="caption" id="fc-list-count"></span></header>
+        <div class="panel__body"><ul class="fc-list" id="fc-list"></ul></div>
+      </section>
     </main>
   </div>
 </body>

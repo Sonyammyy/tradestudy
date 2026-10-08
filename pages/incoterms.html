@@ -19,8 +19,34 @@
   <div class="app">
     <nav id="site-nav" class="site-nav" aria-label="주요 메뉴"></nav>
     <main id="main" class="page page--incoterms">
-      <h1 class="page__title">인코텀즈</h1>
-      <div id="incoterms-root"></div>
+      <div class="page-head">
+        <h1 class="page__title">인코텀즈 2020</h1>
+        <p class="caption">11개 규칙 · 해상·내수로 전용 4 · 모든 운송방식 7</p>
+      </div>
+
+      <section class="panel inco" aria-labelledby="inco-title">
+        <header class="panel__head">
+          <h2 id="inco-title">위험·비용 분기점</h2>
+          <span class="caption">무역계약 과목</span>
+        </header>
+        <div class="panel__body">
+          <div class="segmented" role="group" aria-label="운송방식" id="mode-toggle"></div>
+          <div class="inco-rules" id="rule-buttons" role="group" aria-label="규칙 선택"></div>
+          <div class="track-scroll"><div class="track" id="track"></div></div>
+          <ul class="track-legend caption" id="track-legend"></ul>
+          <div class="inco-detail" id="rule-detail"></div>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="compare-title">
+        <header class="panel__head"><h2 id="compare-title">11개 규칙 비교표</h2><span class="caption">행을 누르면 위에서 자세히 볼 수 있어요</span></header>
+        <div class="table-scroll" id="compare"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="changes-title">
+        <header class="panel__head"><h2 id="changes-title">2020 개정사항</h2></header>
+        <div class="panel__body"><ul class="changes" id="changes"></ul></div>
+      </section>
     </main>
   </div>
 </body>
